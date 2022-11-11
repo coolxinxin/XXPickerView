@@ -1,7 +1,7 @@
 {
   "name": "XXPickerView",
-  "version": "0.1.0",
-  "summary": "A short description of XXPickerView.",
+  "version": "1.0.1",
+  "summary": "一个可以多样的底部弹出选择器,(单项，地址，日期)",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/coolxinxin/XXPickerView",
   "license": {
@@ -9,11 +9,11 @@
     "file": "LICENSE"
   },
   "authors": {
-    "coolxinxin": "xinxiniscool@gmail.com"
+    "coolxinxin": "2438565661@gmail.com"
   },
   "source": {
     "git": "https://github.com/coolxinxin/XXPickerView.git",
-    "tag": "0.1.0"
+    "tag": "1.0.1"
   },
   "platforms": {
     "ios": "10.0"
