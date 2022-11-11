@@ -20,14 +20,14 @@ XXPickerView 可通过 [CocoaPods](https://cocoapods.org) 获得。 安装
 pod 'XXPickerView'
 ```
 
-##功能介绍
+## 功能介绍
 
 ☑️支持单项选择
 ☑️支持地址联动选择 继承项目中的ProtocolAddressData
 ☑️支持日期选择，最小时间，最大时间
 ☑️修改选中的文字大小，颜色
 
-##效果图
+## 效果图
 地址
 
 ![image](img/address.png)
