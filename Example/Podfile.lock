@@ -1,0 +1,16 @@
+PODS:
+  - XXPickerView (0.1.0)
+
+DEPENDENCIES:
+  - XXPickerView (from `../`)
+
+EXTERNAL SOURCES:
+  XXPickerView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  XXPickerView: 23abe513bce1c9644c683f6d93e313b1e3b3f722
+
+PODFILE CHECKSUM: f34b6e68bcbcf3a72b5a0c27ef8dc7d9de9ca22b
+
+COCOAPODS: 1.11.3

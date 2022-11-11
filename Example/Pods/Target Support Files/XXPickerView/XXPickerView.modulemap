@@ -1,0 +1,6 @@
+framework module XXPickerView {
+  umbrella header "XXPickerView-umbrella.h"
+
+  export *
+  module * { export * }
+}
