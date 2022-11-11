@@ -21,7 +21,8 @@ public class DatePickerView : BasePickerView{
     }
     
     
-    public required init(title:String,date:Date, dateResultBlock resultBlock:@escaping DateResultBlock,height:CGFloat = 256,leftMargin:CGFloat = 38,itemHeight:CGFloat = 40,mineDate:Date? = nil,maxDate:Date? = nil
+    public required init(title:String,date:Date, dateResultBlock resultBlock:@escaping DateResultBlock,height:CGFloat = 256,leftMargin:CGFloat = 38,itemHeight:CGFloat = 40,mineDate:Date? = nil,maxDate:Date? = nil,descYear:String = "",
+                         descMonth:String = "",descDay:String = ""
                      ,selectTextColor:UIColor = UIColor.blue,
                      unSelectTextColor:UIColor = UIColor.gray,
                      selectTextFont:UIFont = UIFont.systemFont(ofSize:16),
@@ -30,7 +31,7 @@ public class DatePickerView : BasePickerView{
         super.init(frame: CGRect(x: 0, y: ScreenUtils.Frame.size.height, width: ScreenUtils.Frame.size.width, height: height))
         titleLabel.text = title
         self.resultBlock = resultBlock
-        let picker = DatePickerViewBuilder.init(frame: CGRect.init(x: leftMargin, y: (((confirmButton.superview?.frame.maxY) ?? 0) + 1), width: ScreenUtils.Frame.size.width - CGFloat(leftMargin*2), height: CGFloat(height-41)),date: date,mineDate: mineDate,maxDate: maxDate,itemHeight: itemHeight,selectTextColor: selectTextColor,unSelectTextColor: unSelectTextColor,selectTextFont: selectTextFont,unselectTextFont: unselectTextFont,local: local,callback: {[weak self](result) in
+        let picker = DatePickerViewBuilder.init(frame: CGRect.init(x: leftMargin, y: (((confirmButton.superview?.frame.maxY) ?? 0) + 1), width: ScreenUtils.Frame.size.width - CGFloat(leftMargin*2), height: CGFloat(height-41)),date: date,mineDate: mineDate,maxDate: maxDate,descYear: descYear,descMonth: descMonth,descDay: descDay,itemHeight: itemHeight,selectTextColor: selectTextColor,unSelectTextColor: unSelectTextColor,selectTextFont: selectTextFont,unselectTextFont: unselectTextFont,local: local,callback: {[weak self](result) in
             self?.selectValue = result
         })
         self.addSubview(picker)
@@ -98,6 +99,9 @@ public class DatePickerViewBuilder : UIPickerView, UIPickerViewDelegate,UIPicker
     private lazy var unSelectTextFont = UIFont.systemFont(ofSize: 12)
     private var local = Locale.init(identifier: "en")
     private var itemHeight :CGFloat = 40
+    private var descYear = ""
+    private var descMonth = ""
+    private var descDay = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -145,6 +149,7 @@ public class DatePickerViewBuilder : UIPickerView, UIPickerViewDelegate,UIPicker
     
     convenience init(frame:CGRect,date:Date,
                      mineDate:Date?,maxDate:Date?,
+                     descYear:String = "",descMonth:String = "",descDay:String = "",
                      itemHeight:CGFloat = 40,
                      selectTextColor:UIColor,
                      unSelectTextColor:UIColor,
@@ -157,6 +162,9 @@ public class DatePickerViewBuilder : UIPickerView, UIPickerViewDelegate,UIPicker
         self.backgroundColor = UIColor.white
         self.delegate = self
         self.dataSource = self
+        self.descYear = descYear
+        self.descMonth = descMonth
+        self.descDay = descDay
         self.rowAndComponentCallBack = callback
         self.local = local
         self.itemHeight = itemHeight
@@ -235,7 +243,7 @@ public class DatePickerViewBuilder : UIPickerView, UIPickerViewDelegate,UIPicker
                     pickerLabel?.font = unSelectTextFont
                     pickerLabel?.textColor = unSelectTextColor
                 }
-                pickerLabel?.text = "\(year[row])"
+                pickerLabel?.text = "\(year[row])\(descYear)"
             }else if(component ==  1){
                 if selectMonthIndex == row {
                     pickerLabel?.font = selectTextFont
@@ -245,9 +253,9 @@ public class DatePickerViewBuilder : UIPickerView, UIPickerViewDelegate,UIPicker
                     pickerLabel?.textColor = unSelectTextColor
                 }
                 if(month[row]<10){
-                    pickerLabel?.text = "0\(month[row])"
+                    pickerLabel?.text = "0\(month[row])\(descMonth)"
                 }else{
-                    pickerLabel?.text = "\(month[row])"
+                    pickerLabel?.text = "\(month[row])\(descMonth)"
                 }
                 
             }else{
@@ -259,9 +267,9 @@ public class DatePickerViewBuilder : UIPickerView, UIPickerViewDelegate,UIPicker
                     pickerLabel?.textColor = unSelectTextColor
                 }
                 if(day[row]<10){
-                    pickerLabel?.text = "0\(day[row])"
+                    pickerLabel?.text = "0\(day[row])\(descDay)"
                 }else{
-                    pickerLabel?.text = "\(day[row])"
+                    pickerLabel?.text = "\(day[row])\(descDay)"
                 }
             }
         }
