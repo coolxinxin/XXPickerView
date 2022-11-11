@@ -2,20 +2,15 @@ PODS:
   - XXPickerView (1.0.1)
 
 DEPENDENCIES:
-  - XXPickerView (from `https://github.com/coolxinxin/XXPickerView.git`)
+  - XXPickerView (from `../`)
 
 EXTERNAL SOURCES:
   XXPickerView:
-    :git: https://github.com/coolxinxin/XXPickerView.git
-
-CHECKOUT OPTIONS:
-  XXPickerView:
-    :commit: 083c5f76cd9921e81f62e628db3b1a5680450001
-    :git: https://github.com/coolxinxin/XXPickerView.git
+    :path: "../"
 
 SPEC CHECKSUMS:
   XXPickerView: b72a69159e31910e07eeefb5301c548f63f09301
 
-PODFILE CHECKSUM: ed6d8d113a557fc43b32ae60a81011a0ebf19c96
+PODFILE CHECKSUM: f34b6e68bcbcf3a72b5a0c27ef8dc7d9de9ca22b
 
 COCOAPODS: 1.11.3
