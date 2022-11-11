@@ -23,29 +23,26 @@ public class SinglePickerView<T :PortocolSingleData> : BasePickerView {
    
     public required init(title:String,dataSource:Array<T>,selectCode:String,
                      callback:@escaping SingleResultCallback<T>,
-                     height:CGFloat = 256,leftMargin:CGFloat = 38,itemHeight:CGFloat = 40,
+                         height:CGFloat = 256,titleHeight:CGFloat = 45,color:UIColor = UIColor.white,
+                         leftMargin:CGFloat = 38,itemHeight:CGFloat = 40,
                      selectTextColor:UIColor = UIColor.blue,
                      unSelectTextColor:UIColor = UIColor.gray,
                      selectTextFont:UIFont = UIFont.systemFont(ofSize:16),
                      unselectTextFont:UIFont = UIFont.systemFont(ofSize: 12)) {
         super.init(frame: CGRect(x: 0, y: ScreenUtils.Frame.size.height, width: ScreenUtils.Frame.size.width, height: height))
+        toolView.frame = CGRect.init(x: 0, y: 0, width: Int(self.bounds.size.width), height: Int(titleHeight))
+        toolView.backgroundColor = color
         titleLabel.text = title
         self.callback = callback
         if (dataSource.count != 0) {
             let selectIndex = dataSource.lastIndex(where: {(element)->Bool in element.getCode() == selectCode}) ?? 0
-            let picker = SinglePickerViewBuilder<T>.init(frame: CGRect.init(x: leftMargin, y: (((confirmButton.superview?.frame.maxY) ?? 0) + 1), width: ScreenUtils.Frame.size.width - CGFloat(leftMargin*2), height: CGFloat(height-41)),dataSource:dataSource,selectIndex: selectIndex,itemHeight: itemHeight,selectTextColor: selectTextColor, unSelectTextColor: unSelectTextColor, selectTextFont: selectTextFont, unselectTextFont: unselectTextFont,callback: {[weak self](result) in
+            let picker = SinglePickerViewBuilder<T>.init(frame: CGRect.init(x: leftMargin, y: (((confirmButton.superview?.frame.maxY) ?? 0) + 1), width: ScreenUtils.Frame.size.width - CGFloat(leftMargin*2), height: CGFloat(height-titleHeight-1)),dataSource:dataSource,selectIndex: selectIndex,itemHeight: itemHeight,selectTextColor: selectTextColor, unSelectTextColor: unSelectTextColor, selectTextFont: selectTextFont, unselectTextFont: unselectTextFont,callback: {[weak self](result) in
                 self?.result = result
             })
             self.addSubview(picker)
         }
     }
-    
-    func setTitleView(height:Int,color:UIColor)->SinglePickerView{
-        toolView.frame = CGRect.init(x: 0, y: 0, width: Int(self.bounds.size.width), height: height)
-        toolView.backgroundColor = color
-        return self
-    }
-    
+
     func setDivideLineColor(color:UIColor)->SinglePickerView{
         divideLine.backgroundColor = color
         return self
