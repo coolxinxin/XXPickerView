@@ -43,31 +43,31 @@ public class AddressPickerView<D,T:ProtocolAddressData<D>> : BasePickerView {
         }
     }
     
-    func setDivideLineColor(color:UIColor)->AddressPickerView{
+    public func setDivideLineColor(color:UIColor)->AddressPickerView{
         divideLine.backgroundColor = color
         return self
     }
     
-    func setConfirmStyle(text:String,font:UIFont,textColor:UIColor)->AddressPickerView{
+    public func setConfirmStyle(text:String,font:UIFont,textColor:UIColor)->AddressPickerView{
         confirmButton.setTitle(text, for: .normal)
         confirmButton.setTitleColor(textColor, for: .normal)
         confirmButton.titleLabel?.font = font
         return self
     }
     
-    func setCancelStyle(text:String,font:UIFont,textColor:UIColor)->AddressPickerView{
+    public func setCancelStyle(text:String,font:UIFont,textColor:UIColor)->AddressPickerView{
         cancelButton.setTitle(text, for: .normal)
         cancelButton.setTitleColor(textColor, for: .normal)
         cancelButton.titleLabel?.font = font
         return self
     }
     
-    func setConfirmClickCallback(callback:@escaping ()->Void)->AddressPickerView{
+    public func setConfirmClickCallback(callback:@escaping ()->Void)->AddressPickerView{
         self.confirCallback = callback
         return self
     }
     
-    func setCancelClickCallback(callback:@escaping ()->Void)->AddressPickerView{
+    public func setCancelClickCallback(callback:@escaping ()->Void)->AddressPickerView{
         self.cancelCallback = callback
         return self
     }

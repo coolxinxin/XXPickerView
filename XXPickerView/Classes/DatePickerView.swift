@@ -39,29 +39,29 @@ public class DatePickerView : BasePickerView{
         self.addSubview(picker)
     }
     
-    func setDivideLineColor(color:UIColor)->DatePickerView{
+    public func setDivideLineColor(color:UIColor)->DatePickerView{
         divideLine.backgroundColor = color
         return self
     }
     
-    func setConfirmClickCallback(callback:@escaping ()->Void)->DatePickerView{
+    public func setConfirmClickCallback(callback:@escaping ()->Void)->DatePickerView{
         self.confirCallback = callback
         return self
     }
     
-    func setCancelClickCallback(callback:@escaping ()->Void)->DatePickerView{
+    public func setCancelClickCallback(callback:@escaping ()->Void)->DatePickerView{
         self.cancelCallback = callback
         return self
     }
     
-    func setConfirmStyle(text:String,font:UIFont,textColor:UIColor)->DatePickerView{
+    public func setConfirmStyle(text:String,font:UIFont,textColor:UIColor)->DatePickerView{
         confirmButton.setTitle(text, for: .normal)
         confirmButton.setTitleColor(textColor, for: .normal)
         confirmButton.titleLabel?.font = font
         return self
     }
     
-    func setCancelStyle(text:String,font:UIFont,textColor:UIColor)->DatePickerView{
+    public func setCancelStyle(text:String,font:UIFont,textColor:UIColor)->DatePickerView{
         cancelButton.setTitle(text, for: .normal)
         cancelButton.setTitleColor(textColor, for: .normal)
         cancelButton.titleLabel?.font = font

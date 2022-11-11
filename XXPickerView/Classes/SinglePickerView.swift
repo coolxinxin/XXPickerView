@@ -43,31 +43,31 @@ public class SinglePickerView<T :PortocolSingleData> : BasePickerView {
         }
     }
 
-    func setDivideLineColor(color:UIColor)->SinglePickerView{
+  public func setDivideLineColor(color:UIColor)->SinglePickerView{
         divideLine.backgroundColor = color
         return self
     }
     
-    func setConfirmStyle(text:String,font:UIFont,textColor:UIColor)->SinglePickerView{
+    public func setConfirmStyle(text:String,font:UIFont,textColor:UIColor)->SinglePickerView{
         confirmButton.setTitle(text, for: .normal)
         confirmButton.setTitleColor(textColor, for: .normal)
         confirmButton.titleLabel?.font = font
         return self
     }
     
-    func setCancelStyle(text:String,font:UIFont,textColor:UIColor)->SinglePickerView{
+    public func setCancelStyle(text:String,font:UIFont,textColor:UIColor)->SinglePickerView{
         cancelButton.setTitle(text, for: .normal)
         cancelButton.setTitleColor(textColor, for: .normal)
         cancelButton.titleLabel?.font = font
         return self
     }
     
-    func setConfirmClickCallback(callback:@escaping ()->Void)->SinglePickerView{
+    public func setConfirmClickCallback(callback:@escaping ()->Void)->SinglePickerView{
         self.confirCallback = callback
         return self
     }
     
-    func setCancelClickCallback(callback:@escaping ()->Void)->SinglePickerView{
+    public func setCancelClickCallback(callback:@escaping ()->Void)->SinglePickerView{
         self.cancelCallback = callback
         return self
     }
